@@ -77,10 +77,10 @@ def update_picture(id):
     """To update a picture"""
     obj = request.json
 
-    for element in data:
+    for index, element in enumerate(data):
         if element["id"] == id:
-            data[element] = obj
-            return obj, 201
+            data[index] = obj
+            return element, 201
     return {"message": "picture not found"}, 404
 
 ######################################################################
