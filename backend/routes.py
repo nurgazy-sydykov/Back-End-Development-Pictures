@@ -88,4 +88,10 @@ def update_picture(id):
 ######################################################################
 @app.route("/picture/<int:id>", methods=["DELETE"])
 def delete_picture(id):
-    pass
+    """To delete a picture by ID"""
+    for picture in data:
+        if picture['id'] == id:
+            data.remove(picture)
+            return "", 204
+        else:
+            return {"message": "picture not found"}, 404
